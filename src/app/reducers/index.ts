@@ -41,6 +41,7 @@ import * as fromSearch from './search';
 import * as fromBooks from './books';
 import * as fromCollection from './collection';
 import * as fromLayout from './layout';
+import * as fromAbout from './about';
 
 
 /**
@@ -52,6 +53,7 @@ export interface State {
   books: fromBooks.State;
   collection: fromCollection.State;
   layout: fromLayout.State;
+  about: fromAbout.State;
   router: fromRouter.RouterState;
 }
 
@@ -68,6 +70,7 @@ const reducers = {
   books: fromBooks.reducer,
   collection: fromCollection.reducer,
   layout: fromLayout.reducer,
+  about: fromAbout.reducer,
   router: fromRouter.routerReducer,
 };
 
@@ -157,3 +160,10 @@ export const isSelectedBookInCollection = createSelector(getCollectionBookIds, g
 export const getLayoutState = (state: State) => state.layout;
 
 export const getShowSidenav = createSelector(getLayoutState, fromLayout.getShowSidenav);
+
+/**
+ * About Reducers
+ */
+
+export const getAboutState = (state: State) => state.about;
+export const getAbout = createSelector(getAboutState, fromAbout.getAbout);

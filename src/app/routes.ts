@@ -5,11 +5,16 @@ import { FindBookPageComponent } from './containers/find-book-page';
 import { ViewBookPageComponent } from './containers/view-book-page';
 import { CollectionPageComponent } from './containers/collection-page';
 import { NotFoundPageComponent } from './containers/not-found-page';
+import { AboutPageComponent } from './containers/about-page';
 
 export const routes: Routes = [
   {
     path: '',
     component: CollectionPageComponent
+  },
+  {
+    path: 'about',
+    component: AboutPageComponent
   },
   {
     path: 'book/find',

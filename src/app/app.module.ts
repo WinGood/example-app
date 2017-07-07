@@ -14,6 +14,7 @@ import { MaterialModule } from '@angular/material';
 import { ComponentsModule } from './components';
 import { BookEffects } from './effects/book';
 import { CollectionEffects } from './effects/collection';
+import { AboutEffects } from './effects/about';
 import { BookExistsGuard } from './guards/book-exists';
 
 import { AppComponent } from './containers/app';
@@ -22,8 +23,10 @@ import { ViewBookPageComponent } from './containers/view-book-page';
 import { SelectedBookPageComponent } from './containers/selected-book-page';
 import { CollectionPageComponent } from './containers/collection-page';
 import { NotFoundPageComponent } from './containers/not-found-page';
+import { AboutPageComponent } from './containers/about-page';
 
 import { GoogleBooksService } from './services/google-books';
+import { AboutService } from './services/about';
 
 import { routes } from './routes';
 import { reducer } from './reducers';
@@ -75,6 +78,7 @@ import { schema } from './db';
      */
     EffectsModule.run(BookEffects),
     EffectsModule.run(CollectionEffects),
+    EffectsModule.run(AboutEffects),
 
     /**
      * `provideDB` sets up @ngrx/db with the provided schema and makes the Database
@@ -88,11 +92,13 @@ import { schema } from './db';
     SelectedBookPageComponent,
     ViewBookPageComponent,
     CollectionPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    AboutPageComponent
   ],
   providers: [
     BookExistsGuard,
-    GoogleBooksService
+    GoogleBooksService,
+    AboutService
   ],
   bootstrap: [
     AppComponent
